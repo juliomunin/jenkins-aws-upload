@@ -12,7 +12,7 @@ pipeline {
          }      
          stage('Upload to AWS') {
               steps {
-                  withAWS(region:'us-west-1',credentials:'AWS_CREDENTIALS_ID') {
+                  withAWS(region:'us-east-1',credentials:'AWS_CREDENTIALS_ID') {
                   sh 'echo "Uploading content with AWS creds"'
                       s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'app.py', bucket:'bootcamp081')
                   }
